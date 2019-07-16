@@ -47,4 +47,11 @@ if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_configtext('block_configurable_reports/reportlimit', get_string('reportlimit', 'block_configurable_reports'),
         get_string('reportlimitinfo', 'block_configurable_reports'), '5000', PARAM_INT, 6));
+
+// LUIS: Add showrecordcount setting to show/hide the "Show record count" option
+    $settings->add(new admin_setting_configcheckbox('block_configurable_reports/showrecordcount', get_string('showrecordcount', 'block_configurable_reports'),
+        get_string('showrecordcountinfo', 'block_configurable_reports'), 0));
+
+    $settings->add(new admin_setting_configcheckbox('block_configurable_reports/showexecutiontime', get_string('showexecutiontime', 'block_configurable_reports'),
+        get_string('showexecutiontimeinfo', 'block_configurable_reports'), 0));
 }
