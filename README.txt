@@ -27,7 +27,80 @@ By Tim Hunt
 
 VERSIONS HISTORY
 
-3.7.0 (2019060300) for Moodle 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7
+3.9.0 (2019122000) for Moodle 3.4, 3.5, 3.6, 3.7, 3.8, 3.9
+Release date: Tuesday, 3 November 2020
+----------------------------------------------------------------------
+- Starting this version for allowing SQL queries performing data insertion/creation the following configuration variable set to 1
+  is required in your site root /config.php:
+  $CFG->block_configurable_reports_enable_sql_execution = 1;
+  Otherwise, previous Custom SQL reports performing data insertion/creation will stop working.
+- Added matching colors to pie charts
+- Added unmapped palette for general colors to pie charts
+- Changed fuserfield to allow for multiple instances of the filter
+- Added alphabetical sort to courses filter
+- Added webservice to get reports data
+- Added new filters for competencies
+- Other fixes and improvements:
+  * Fix offset error for bar graphs when not using SQL reporting
+  * Removed default sorting from DataTables JS UI
+  * Fixed issue where colors would mismatch if values weren't present
+  * Fixed STARTTIME and ENDTIME variable substitution
+  * Avoid text filtering when exporting
+
+Thanks Alex Rowe, David Saylor, Michael Gardener, Muhammad Osama Arshad, Daniel Poggenpohl, Daniel Neis, François Parlant and all the contributors who have sent several fixes and improvements.
+
+
+3.8.0 (2019122000) for Moodle 3.4, 3.5, 3.6, 3.7, 3.8
+Release date: Friday, 20 Dec 2019
+----------------------------------------------------------------------
+- Order the list of users in users filter by fullname considering language - #130
+- Other fixes and improvements:
+  * Fix template array error - #132
+  * Fix DB mismatch between install.xml and upgrade.php - #123
+  * Fix LIMIT error for MSSQL - CONTRIB-7891
+  * Remove "_" from the table header titles - #137
+  * Review supported Moodle versions, because the core_userlist_provider interface is only supported from 3.4 onwards - #125
+
+
+Thanks Daniel Neis (danielneis), Mike McDougal (mcdoogs), Tuan Ngoc Nguyen (tuanngocnguyen), Mike Henry (mhenry79mnet), safatshahinsd, kristian-94 and all the contributors who have sent several fixes and improvements.
+And special thanks also to Carlos, Moodle HQ and Juan for letting Sara work on this again during the project week.
+
+
+3.3.0 (2019121900) for Moodle 3.0, 3.1, 3.2, 3.3
+Release date: Friday, 20 Dec 2019
+----------------------------------------------------------------------
+- Order the list of users in users filter by fullname considering language - #130
+- Add a new calculation type: percentage
+- Allow userfields to be used more than once in the permissions
+- Move JS to AMD modules
+- Upgrade some 3rd party JS libraries
+- Fix import from XML
+- Review the year filter to take min and max years from the calendar factory
+- Other fixes and improvements:
+  * Fix template array error - #132
+  * Fix DB mismatch between install.xml and upgrade.php - #123
+  * Fix LIMIT error for MSSQL - CONTRIB-7891
+  * Remove "_" from the table header titles - #137
+  * Review supported Moodle versions, because the core_userlist_provider interface is only supported from 3.4 onwards - #125
+  * Fix error when using templates
+  * Fix error when using the Start/End filter
+  * Fix legacy_polyfill error when running unit tests
+  * Display custom title for the block
+  * Replace deprecated methods (htmleditor, pix_url and coursecat)
+  * Remove CSS files not found error in JS console
+  * Show breadcrumbs for users without manage report capability
+  * Fix DB query function call for the enrolled students filter
+  * Raise the memory limit when exporting
+  * Clean some request parameters before using them
+  * Fix error with user field search box filter
+  * Improve compatibility with PostgreSQL when importing
+
+
+Thanks Daniel Neis (danielneis), Mike McDougal (mcdoogs), Tuan Ngoc Nguyen (tuanngocnguyen), Mike Henry (mhenry79mnet), safatshahinsd, kristian-94, David (davidpesce), Dimitrii (dmitriim), Alex (agrowe), Donald (emyb2), sopnep15, Danniel (dannielarriola) and all the contributors who have sent several fixes and improvements.
+And special thanks also to Carlos, Sander, Moodle HQ and Juan for letting Sara work on this again during the project week.
+
+
+3.7.0 (2019060300) for Moodle 3.4, 3.5, 3.6, 3.7
 Release date: Monday, 3 Jun 2019
 ----------------------------------------------------------------------
 - Add a new calculation type: percentage
@@ -43,7 +116,7 @@ Thanks David (davidpesce), Dimitrii (dmitriim) and all the contributors who have
 And special thanks also to Sander, Moodle HQ and Juan for letting Sara work on this again during the project week.
 
 
-3.6.0 (2019021500) for Moodle 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6
+3.6.0 (2019021500) for Moodle 3.4, 3.5, 3.6
 Release date: Friday, 15 Feb 2019
 ----------------------------------------------------------------------
 - Implement Privacy API
@@ -67,6 +140,7 @@ Release date: Friday, 15 Feb 2019
 Thanks Alex (agrowe), Donald (emyb2), sopnep15, Danniel (dannielarriola) and all the contributors who have sent several
 fixes and improvements.
 And special thanks also to Sander, Moodle HQ and Juan for letting Sara work on this during the project week.
+
 
 
 3.1.1 (2016020103) for Moodle 3.0, 3.1

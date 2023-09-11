@@ -667,7 +667,12 @@ class report_base {
             }
 
             foreach ($this->finalreport->table->data as $r) {
-                $recordtext = $recordtpl;
+                if (is_array($recordtpl)) {
+                    $recordtext = $recordtpl['text'];
+                } else {
+                    $recordtext = $recordtpl;
+                }
+                
                 foreach ($this->finalreport->table->head as $key => $c) {
                     $recordtext = str_ireplace("[[$c]]", $r[$key], $recordtext);
                 }
@@ -774,7 +779,11 @@ class report_base {
 
             $this->print_export_options();
         } else {
-            echo '<div class="centerpara">'.get_string('norecordsfound', 'block_configurable_reports').'</div>';
+            if (isset($this->filterform) && !$this->filterform->get_data()) {
+                echo '<div class="centerpara">'.get_string('applyfilters', 'block_configurable_reports').'</div>';
+            } else {
+                echo '<div class="centerpara">'.get_string('norecordsfound', 'block_configurable_reports').'</div>';
+            }
         }
 
         echo '<div class="centerpara"><br />';
